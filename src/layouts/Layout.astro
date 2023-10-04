@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>SHAAN KEOLE '24 FOR HOCO COURT</title>
+    {
+      import.meta.env.PROD ? (
+        <script
+          async
+          src="https://u.rgodha.com/script.js"
+          data-website-id="5f5e0651-2654-4825-9a33-d82ef6842853"
+        />
+      ) : null
+    }
   </head>
   <body>
     <slot />
