@@ -1,20 +1,18 @@
 ---
 import { Image } from "astro:assets";
 import skeole from "../assets/skeole.webp";
+import Layout from "../layouts/Layout.astro";
+import Particles from "../components/Particles.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/webp" href="/skeole.webp" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>SHAAN KEOLE '24 FOR HOCO COURT</title>
-	</head>
-	<body
+<Layout>
+	<Particles />
+	<div
 		class="flex flex-col justify-center items-center h-screen [text-wrap:balance]"
 	>
-		<h1 class="text-7xl text-center">VOTE SHAAN KEOLE '24 FOR HOCO COURT!!!</h1>
+		<h1 class="text-7xl text-center text-white">
+			VOTE SHAAN KEOLE '24 FOR HOCO COURT!!!
+		</h1>
 		<Image src={skeole} alt="shaan keole" />
-	</body>
-</html>
+	</div>
+</Layout>

@@ -1,0 +1,73 @@
+---
+import Particles from "astro-particles";
+import type { ISourceOptions } from "tsparticles-engine";
+
+const options: ISourceOptions = {
+  background: {
+    color: "#000",
+  },
+  fullScreen: {
+    zIndex: -1,
+  },
+  particles: {
+    number: {
+      value: 100,
+    },
+    move: {
+      enable: true,
+    },
+    shape: {
+      type: "image",
+      options: {
+        image: [
+          {
+            src: "/smileheart.png",
+            width: 32,
+            height: 32,
+            particles: {
+              size: {
+                value: 32,
+              },
+            },
+          },
+          {
+            src: "/heart.png",
+            width: 32,
+            height: 32,
+            particles: {
+              size: {
+                value: 32,
+              },
+            },
+          },
+        ],
+      },
+    },
+  },
+};
+---
+
+<script>
+  import { type Container, type Engine, tsParticles } from "tsparticles-engine";
+  import { loadFull } from "tsparticles";
+
+  // the function name is the parameter passed to the init attribute
+  // required
+  // add the function to window is mandatory, it will be searched there
+  // @ts-ignore
+  window.particlesInit = async function (engine: Engine) {
+    await loadFull(engine);
+  };
+
+  // the function name is the parameter passed to the loaded attribute
+  // optional
+  // add the function to window is mandatory, it will be searched there
+  // @ts-ignore
+  window.particlesLoaded = function (container: Container) {
+    console.log("particlesLoaded callback");
+  };
+</script>
+
+<div class="absolute">
+  <Particles id="tsparticles" options={options} init="particlesInit" />
+</div>
